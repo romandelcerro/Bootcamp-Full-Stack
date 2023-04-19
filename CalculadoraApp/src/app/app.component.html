@@ -1,0 +1,38 @@
+<body class="d-flex justify-content-center">
+  <div>
+
+    <h1>{{title}}</h1>
+  
+    <form >
+
+      <input type="text" readonly name="cuadro" id="cuadro" [(ngModel)]="cuadro" name="cuadro"><br><br>
+      <input type="submit" value="7" class="btn btn-primary" (click)="addNumero(7)">
+      <input type="submit" value="8" class="btn btn-primary" (click)="addNumero(8)">
+      <input type="submit" value="9" class="btn btn-primary" (click)="addNumero(9)">
+      <input type="submit" value="/" class="btn btn-primary" (click)="btnDividir()">
+      <input type="submit" value="<=" class="btn btn-primary" (click)="btnRetroceso()"><br>
+      <input type="submit" value="4" class="btn btn-primary" (click)="addNumero(4)">
+      <input type="submit" value="5" class="btn btn-primary" (click)="addNumero(5)">
+      <input type="submit" value="6" class="btn btn-primary" (click)="addNumero(6)">
+      <input type="submit" value="X" class="btn btn-primary" (click)="btnMultiplicar()">
+      <input type="submit" value="CE" class="btn btn-primary" (click)="btnCE()"><br>
+      <input type="submit" value="1" class="btn btn-primary" (click)="addNumero(1)">
+      <input type="submit" value="2" class="btn btn-primary" (click)="addNumero(2)">
+      <input type="submit" value="3" class="btn btn-primary" (click)="addNumero(3)">
+      <input type="submit" value="-" class="btn btn-primary" (click)="btnRestar()">
+      <input type="submit" value="C" class="btn btn-primary" (click)="btnC()"><br>
+      <input type="submit" value="+/-" class="btn btn-primary" (click)="btnMasMenos()">
+      <input type="submit" value="0" class="btn btn-primary" (click)="addNumero(0)">
+      <input type="submit" value="." class="btn btn-primary" (click)="btnDecimal()">
+      <input type="submit" value="+" class="btn btn-primary" (click)="btnSumar()">
+      <input type="submit" value="=" class="btn btn-primary" (click)="btnIgual()">
+
+    </form>
+  
+  
+  </div>
+</body>
+
+
+
+
