@@ -1,0 +1,102 @@
+<div class="container col-md-6 text-center" style="margin-top: 50px;">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agregar Barco</h3>
+        </div>
+        <div class="card-body">
+           <form action="" #socioForm = "ngForm">
+            <div class="form-group">
+                <label for="">Matricula:</label>
+                <input type="text" class="form-control" [(ngModel)]="barco.num_matricula" name="matricula"
+                required 
+                minlength="2" maxlength="10" placeholder="Introduce una matricula"
+                #matricula = "ngModel"
+                >
+            </div>
+            <div *ngIf="matricula.invalid && matricula.dirty || matricula.touched">
+                <div *ngIf="matricula.errors?.['required']" class="alert alert-danger" >
+                    Introduce una matricula
+                </div>
+                <div *ngIf="matricula.errors?.['minlength']" class="alert alert-danger" >
+                    La matricula debe contener al menos 2 caracteres
+                </div>
+                <div *ngIf="matricula.errors?.['maxlength']" class="alert alert-danger" >
+                    La matricula debe tener 20 caracteres como máximo
+                </div>
+
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Nombre:</label>
+                <input type="text" class="form-control" [(ngModel)]="barco.nombre" name="nombreBarco"
+                required 
+                minlength="5" maxlength="20" placeholder="Introduce un nombre"
+                #nombre = "ngModel"
+                >
+            </div>
+            <div *ngIf="nombre.invalid && nombre.dirty || nombre.touched">
+                <div *ngIf="nombre.errors?.['required']" class="alert alert-danger" >
+                    Introduce un nombre
+                </div>
+                <div *ngIf="nombre.errors?.['minlength']" class="alert alert-danger" >
+                    El nombre debe contener al menos 4 caracteres
+                </div>
+                <div *ngIf="nombre.errors?.['maxlength']" class="alert alert-danger" >
+                    El nombre debe tener 20 caracteres como máximo
+                </div>
+
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Amarre:</label>
+                <input type="text" class="form-control" [(ngModel)]="barco.num_amarre" name="amarre"
+                pattern="^[0-9]+$"
+                required 
+                maxlength="4"
+                placeholder="Introduce un amarre"
+                #amarre = "ngModel"
+                >
+            </div>
+            <div *ngIf="amarre.invalid && amarre.dirty || amarre.touched">
+                <div *ngIf="amarre.errors?.['required']" class="alert alert-danger" >
+                    Introduce un amarre
+                </div>
+                <div *ngIf="amarre.errors?.['pattern']" class="alert alert-danger" >
+                    Introduce caracteres numéricos
+                </div>
+                
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Cuota:</label>
+                <input type="text" class="form-control" [(ngModel)]="barco.cuota" name="cuota"
+                pattern="^[0-9]+(\.[0-9]+)?$"
+                required 
+                maxlength="10"
+                placeholder="Introduce una cuota"
+                #cuota = "ngModel"
+                >
+                <div *ngIf="cuota.invalid && cuota.dirty || cuota.touched">
+                    <div *ngIf="cuota.errors?.['required']" class="alert alert-danger" >
+                        Introduce una cuota
+                    </div>
+                    <div *ngIf="cuota.errors?.['pattern']" class="alert alert-danger" >
+                        Introduce caracteres numéricos
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Propietario:</label> <br>
+                <select [(ngModel)]="socioId" name="socioId" (ngModelChange)="asignarSocioId()">
+                    <option *ngFor="let socio of socios" [value]="socio.id" >{{ socio.nombre + ' ' + socio.apellidos }}</option>
+                </select>
+                
+            </div>
+            <button (click)="Guardar(barco)" [disabled]="!socioForm.form.valid" class="btn btn-danger" style="margin-top: 20px;">Agregar</button>
+           </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+

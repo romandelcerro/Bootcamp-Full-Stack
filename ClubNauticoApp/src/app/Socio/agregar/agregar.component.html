@@ -1,0 +1,90 @@
+<div class="container col-md-6 text-center" style="margin-top: 50px;">
+    <div class="card">
+        <div class="card-header">
+            <h3>Agregar Socio</h3>
+        </div>
+        <div class="card-body">
+           <form action="" #socioForm = "ngForm">
+            <div class="form-group">
+                <label for="">Nombre:</label>
+                <input type="text" class="form-control" [(ngModel)]="modelSocio.nombre" name="nombre"
+                required 
+                minlength="2" maxlength="10" placeholder="Introduce un nombre"
+                #nombre = "ngModel"
+                >
+            </div>
+            <div *ngIf="nombre.invalid && nombre.dirty || nombre.touched">
+                <div *ngIf="nombre.errors?.['required']" class="alert alert-danger" >
+                    Introduce un nombre
+                </div>
+                <div *ngIf="nombre.errors?.['minlength']" class="alert alert-danger" >
+                    El nombre debe contener al menos 2 caracteres
+                </div>
+                <div *ngIf="nombre.errors?.['maxlength']" class="alert alert-danger" >
+                    El nombre debe tener 10 caracteres como máximo
+                </div>
+
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Apellidos:</label>
+                <input type="text" class="form-control" [(ngModel)]="modelSocio.apellidos" name="apellidos"
+                required 
+                minlength="5" maxlength="20" placeholder="Introduce los apellidos"
+                #apellidos = "ngModel"
+                >
+            </div>
+            <div *ngIf="apellidos.invalid && apellidos.dirty || apellidos.touched">
+                <div *ngIf="apellidos.errors?.['required']" class="alert alert-danger" >
+                    Introduce los apellidos
+                </div>
+                <div *ngIf="apellidos.errors?.['minlength']" class="alert alert-danger" >
+                    Los apellidos deben contener al menos 5 caracteres
+                </div>
+                <div *ngIf="apellidos.errors?.['maxlength']" class="alert alert-danger" >
+                    Los apellidos deben tener 20 caracteres como máximo
+                </div>
+
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Correo:</label>
+                <input type="text" class="form-control" [(ngModel)]="modelSocio.correo" name="correo"
+                pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+                required 
+                maxlength="40"
+                placeholder="Introduce un correo"
+                #correo = "ngModel"
+                >
+            </div>
+            <div *ngIf="correo.invalid && correo.dirty || correo.touched">
+                <div *ngIf="correo.errors?.['required']" class="alert alert-danger" >
+                    Introduce un correo
+                </div>
+                <div *ngIf="correo.errors?.['pattern']" class="alert alert-danger" >
+                    Introduce un correo válido: user@gmail.com
+                </div>
+                
+            </div>
+            <div class="form-group" style="margin-top: 10px;">
+                <label for="">Telefono:</label>
+                <input type="text" class="form-control" [(ngModel)]="modelSocio.telefono" name="telefono"
+                pattern="[0-9]{9}"
+                required 
+                maxlength="9"
+                placeholder="Introduce un teléfono"
+                #telefono = "ngModel"
+                >
+                <div *ngIf="telefono.invalid && telefono.dirty || telefono.touched">
+                    <div *ngIf="telefono.errors?.['required']" class="alert alert-danger" >
+                        Introduce un teléfono
+                    </div>
+                    <div *ngIf="telefono.errors?.['pattern']" class="alert alert-danger" >
+                        Introduce un teléfono válido: 9 dígitos
+                    </div>
+                    
+                </div>
+            </div>
+            <button (click)="Guardar(modelSocio)" [disabled]="!socioForm.form.valid" class="btn btn-danger" style="margin-top: 20px;">Agregar</button>
+           </form>
+        </div>
+    </div>
+</div>

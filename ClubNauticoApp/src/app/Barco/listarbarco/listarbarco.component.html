@@ -1,0 +1,39 @@
+<div class="container text-center" style="margin-top: 50px;">
+    <div class="card">
+        <div class="card-header">
+            <h3>Barcos</h3>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover">
+                <thead>
+                    <tr >
+                        
+                        <th>Nombre</th>
+                        <th>Amarre</th>
+                        <th>Cuota</th>
+                        <th>Propietario</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let barco of barcos | paginate: {itemsPerPage:5, currentPage:pageActual}" class="text-center">
+                        <td>{{barco.nombre}}</td>
+                        <td>{{barco.num_amarre}}</td>
+                        <td>{{barco.cuota}}</td>
+                        <td>{{barco.nombreSocio + ' ' + barco.apellidosSocio}}</td>
+                        <td>
+                            <button (click)="Editar(barco)" class="btn btn-warning">Editar</button>
+                            <button (click)="Delete(barco)" class="btn btn-danger" style="margin-left: 10px;">Eliminar</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="pageActual = $event" [previousLabel]="'Anterior'" [nextLabel]="'Siguiente'"></pagination-controls>
+        </div>
+        
+    </div>
+    
+</div>
+
+<button (click)="Nuevo()" class="btn btn-info" style="margin-top: 20px; margin-left: 10px;">Agregar Barco</button>
+
