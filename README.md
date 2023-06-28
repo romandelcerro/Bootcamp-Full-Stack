@@ -5,7 +5,9 @@ This is a fullstack bootcamp provided by Atos. Includes 4 projects Does not incl
 ## Technologies Used
 
 - Angular
+- TypeScript
 - HTML
+- CSS
 - Bootstrap
 - Spring Boot
 - Java
