@@ -1,6 +1,6 @@
 # Bootcamp-Full-Stack
 
-This is a fullstack bootcamp provided by Atos. Includes 4 projects
+This is a fullstack bootcamp provided by Atos. Includes 4 projects Does not include the back of ClubNauticoApp!
 
 ## Technologies Used
 
